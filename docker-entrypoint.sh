@@ -8,4 +8,7 @@ trap 'kill -2 1; wait 1' SIGTERM
 #     exec /usr/bin/mongod "$@"
 # fi
 
+rm /data/db/mongod.lock
+mongod --repair
+
 exec "$@"
